@@ -41,9 +41,9 @@ class SSO {
   // }
 
   private getAuthorizationCodeFromHash(): string | null {
-    const hash = window.location.hash.substring(1); // Menghapus simbol #
+    const hash = window.location.hash.substring(1); 
     const params = new URLSearchParams(hash);
-    return params.get("code"); // Mengambil nilai dari parameter code
+    return params.get("code");
   }
 
   // Fungsi silent login dengan fallback

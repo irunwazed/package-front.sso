@@ -62,10 +62,14 @@ class SSO {
     }
   }
 
-  async portal_login() {
-    const isInternal = this.realm === "internal-BKN" ? "true" : "false";
+  async portal_login_redirect() {
+    const isInternal = this.realm == "public-siasn" ? "false" : "true"
     const redirect = window.location.href
-    window.location.href = `${this.url_portal}?app=${this.encodeBase64(redirect)}&isInternal=${isInternal}`;
+    window.location.href = this.url_portal+`?action=login&app=${this.encodeBase64(redirect)}&isInternal=${isInternal}`
+  }
+
+  async portal_login() {
+    window.location.href = this.url_portal+`?action=login`
   }
 
   async init(config) {
@@ -137,4 +141,5 @@ class SSO {
   }
 }
 
-export default SSO;
+// CommonJS export
+module.exports = SSO;

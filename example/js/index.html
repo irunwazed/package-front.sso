@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  LOGIN SSO
+
+  <script src="../../keycloak-portal.js"></script>
+  <script>
+    const sso = new SSO({
+    client_id: "",
+    realm: "public-siasn",
+    url: "https://sso-siasn.bkn.go.id/auth",
+    url_portal: "https://asndigital.bkn.go.id/"
+  })
+
+  sso.portal_login_redirect()
+  </script>
+</body>
+</html>
