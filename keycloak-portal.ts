@@ -125,10 +125,15 @@ class SSO {
   //   return input
   // };
 
+  public async portal_login_redirect() {
+    const isInternal = this.realm == "public-siasn" ? "false" : "true"
+    const redirect = window.location.href
+    window.location.href = this.url_portal+`?action=login&app=${this.encodeBase64(redirect)}&isInternal=${isInternal}`
+  }
+
+
   public async portal_login() {
-    const isInternal = this.realm == "internal-BKN" ? "true" : "false"
-    const redirect = "https://kinerja.bkn.go.id/login" // window.location.href
-    window.location.href = this.url_portal+`?app=${this.encodeBase64(redirect)}&isInternal=${isInternal}`
+    window.location.href = this.url_portal+`?action=login`
   }
 
   public async init(

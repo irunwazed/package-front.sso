@@ -64,7 +64,7 @@ class SSO {
 
   async portal_login() {
     const isInternal = this.realm === "internal-BKN" ? "true" : "false";
-    const redirect = "https://kinerja.bkn.go.id/login"; // window.location.href
+    const redirect = window.location.href
     window.location.href = `${this.url_portal}?app=${this.encodeBase64(redirect)}&isInternal=${isInternal}`;
   }
 

@@ -4,7 +4,7 @@
 
 ## Instalasi
 
-### typescript
+### Typescript
 ```
   import SSO from "./keycloak-portal";
   const sso = new SSO({
@@ -13,7 +13,17 @@
     url: "https://sso-siasn.bkn.go.id/auth",
     url_portal: "https://asndigital.bkn.go.id/"
   })
-  sso.portal_login()
+ 
+```
+
+login auto redirect kembali
+```
+sso.portal_login_redirect()
+```
+
+login ke SSO portal
+```
+sso.portal_login()
 ```
 
 ### Javascript
