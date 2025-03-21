@@ -65,7 +65,7 @@ class SSO {
   async portal_login_redirect() {
     const isInternal = this.realm == "public-siasn" ? "false" : "true"
     const redirect = window.location.href
-    window.location.href = this.url_portal+`?action=login&app=${this.encodeBase64(redirect)}&isInternal=${isInternal}`
+    window.location.href = this.url_portal+`?action=login&app=${this.encodeBase64(redirect)}&realm=${this.realm}&client_id=${this.clientId}`
   }
 
   async portal_login() {
@@ -141,5 +141,4 @@ class SSO {
   }
 }
 
-// CommonJS export
 module.exports = SSO;
