@@ -16,15 +16,23 @@
  
 ```
 
-login auto redirect kembali
-```
-sso.portal_login_redirect()
-```
 
 login ke SSO portal
 ```
 sso.portal_login()
 ```
+
+
+login ke menu
+```
+sso.portal_login_menu()
+```
+
+login auto redirect kembali
+```
+sso.portal_login_redirect()
+```
+
 
 ### Javascript
 ```

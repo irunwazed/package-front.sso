@@ -3,6 +3,7 @@ export interface SSOConfig {
   realm: string;
   url: string;
   url_portal?: string;
+  menu?: "individu"|"internal"|"bkn"|"pendukung";
 }
 
 
@@ -12,6 +13,7 @@ class SSO {
   private url: string;
   private url_portal: string;
   private redirectUri: string;
+  private menu: string
   // private redirectSilentUri: string;
   private token: string | null = null;
   private refreshToken: string | null = null;
@@ -23,6 +25,7 @@ class SSO {
     this.realm = config.realm;
     this.url = config.url;
     this.url_portal = config?.url_portal ?? "";
+    this.menu = config?.menu ?? ""
     this.redirectUri = `${window.location.origin}${window.location.pathname}`;
     // this.redirectSilentUri = `${window.location.origin}/silent-check-sso.html`; // Redirect URI untuk silent login
   }
@@ -126,12 +129,16 @@ class SSO {
   // };
 
   public async portal_login_redirect() {
-    const redirect = window.location.href
+    const redirect = "https://kinerja.bkn.go.id/login" // window.location.href
     window.location.href = this.url_portal+`?action=login&app=${this.encodeBase64(redirect)}&realm=${this.realm}&client_id=${this.clientId}`
   }
 
   public async portal_login() {
     window.location.href = this.url_portal+`?action=login`
+  }
+
+  public async portal_login_menu() {
+    window.location.href = this.url_portal+`?action=login&menu=${this.menu}`
   }
 
   public async init(
