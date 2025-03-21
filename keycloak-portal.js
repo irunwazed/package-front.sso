@@ -71,6 +71,10 @@ class SSO {
     window.location.href = this.url_portal+`?action=login`
   }
 
+  async portal_login_menu(menu) {
+    window.location.href = this.url_portal+`?action=login&menu=${menu}`
+  }
+
   async init(config) {
     if (config?.silentCheckSsoRedirectUri) {
       // this.redirectSilentUri = config?.silentCheckSsoRedirectUri;

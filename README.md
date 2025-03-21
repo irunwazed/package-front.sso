@@ -16,22 +16,11 @@
  
 ```
 
-
 login ke SSO portal
 ```
 sso.portal_login()
 ```
 
-
-login ke menu
-```
-sso.portal_login_menu()
-```
-
-login auto redirect kembali
-```
-sso.portal_login_redirect()
-```
 
 
 ### Javascript
@@ -49,4 +38,21 @@ sso.portal_login_redirect()
   </script>
 ```
 
+
+## jenis jenis login
+
+login ke SSO portal
+```
+sso.portal_login()
+```
+
+login ke menu
+```
+sso.portal_login_menu("instansi") // "bkn"|"instansi"|"individu"|"pendukung"
+```
+
+login auto redirect kembali
+```
+sso.portal_login_redirect()
+```
 
